@@ -5,7 +5,7 @@ set -e
 # TODO: Set to URL of git repo.
 PROJECT_GIT_URL='https://github.com/MarkoPolietaiev/diploma-rest-api.git'
 
-PROJECT_BASE_PATH='/usr/local/apps'
+PROJECT_BASE_PATH='/usr/local/apps/diploma-rest-api'
 VIRTUALENV_BASE_PATH='/usr/local/virtualenvs'
 
 # Set Ubuntu Language
@@ -26,8 +26,8 @@ $VIRTUALENV_BASE_PATH/diploma_api/bin/pip install -r $PROJECT_BASE_PATH/diploma-
 
 # Run migrations
 cd $PROJECT_BASE_PATH
-$PROJECT_BASE_PATH/env/bin/python manage.py migrate
-$PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
+python manage.py migrate
+python manage.py collectstatic --noinput
 
 # Setup Supervisor to run our uwsgi process.
 cp $PROJECT_BASE_PATH/diploma-rest-api/deploy_v2/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
