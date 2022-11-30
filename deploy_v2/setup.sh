@@ -27,8 +27,8 @@ $VIRTUALENV_BASE_PATH/diploma_api/bin/pip install -r $PROJECT_BASE_PATH/diploma-
 # Run migrations
 echo "Run migrations"
 cd $PROJECT_BASE_PATH/diploma-rest-api
-python3 manage.py migrate
-python3 manage.py collectstatic --noinput
+$VIRTUALENV_BASE_PATH/diploma_api/bin/python3 manage.py migrate
+$VIRTUALENV_BASE_PATH/diploma_api/bin/python3 manage.py collectstatic --noinput
 
 # Setup Supervisor to run our uwsgi process.
 cp $PROJECT_BASE_PATH/diploma-rest-api/deploy_v2/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
