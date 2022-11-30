@@ -25,6 +25,7 @@ python3 -m venv $VIRTUALENV_BASE_PATH/diploma_api
 $VIRTUALENV_BASE_PATH/diploma_api/bin/pip install -r $PROJECT_BASE_PATH/diploma-rest-api/requirements.txt
 
 # Run migrations
+echo "Run migrations"
 cd $PROJECT_BASE_PATH/diploma-rest-api
 $PROJECT_BASE_PATH/env/bin/python manage.py migrate
 $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
